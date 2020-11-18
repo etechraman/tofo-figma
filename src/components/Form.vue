@@ -10,7 +10,7 @@
                 <br />
                 <textarea rows="11" v-model="todo" required></textarea>
                 <br />
-                <p id="cancel" @click="cancel">Cancel</p>
+                <p id="cancel" @click="close">Cancel</p>
                 <p id="done" @click.prevent="submit">Done</p>
               </form>
             </div>
@@ -36,9 +36,9 @@ export default {
         return alert("Nothing to add");
       }
       this.$emit("submitItem", this.todo);
-      this.$emit("close");
+      this.close();
     },
-    cancel() {
+    close() {
       this.$emit("close");
     },
   },
